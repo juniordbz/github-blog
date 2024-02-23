@@ -2,7 +2,7 @@ import { CardsContainer } from './styles'
 
 export function CardsPost() {
   return (
-    <CardsContainer>
+    <CardsContainer to="/post/1">
       <header>
         <h3>JavaScript data types and data structures</h3>
         <span>Há 1 dia</span>

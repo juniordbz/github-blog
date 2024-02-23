@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const CardsContainer = styled.div`
+export const CardsContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -16,6 +16,12 @@ export const Picture = styled.img`
   height: 9rem;
   border-radius: 8px;
   object-fit: cover;
+
+  @media screen and (max-width: 991px) {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 4px;
+  }
 `
 
 export const ProfileContent = styled.div`
