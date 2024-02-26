@@ -5,7 +5,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../../../lib/axios'
-import { Spinner } from '../../../../components/spinner'
+import { Spinner } from '../../../../components/Spinner'
 
 const userName = import.meta.env.VITE_GITHUB_USERNAME
 

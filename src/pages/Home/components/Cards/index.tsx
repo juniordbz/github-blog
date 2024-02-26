@@ -10,7 +10,7 @@ export function CardsPost({ post }: PostProps) {
   const formattedDate = relativeDateFormatter(post.created_at)
 
   return (
-    <CardsContainer to={`/post/${post.id}`}>
+    <CardsContainer to={`/post/${post.number}`}>
       <header>
         <h3>{post.title}</h3>
         <span>{formattedDate}</span>
