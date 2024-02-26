@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const SearchInputContainer = styled.form`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: 100%;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 4.75rem;
+  margin: 4.75rem 0 3rem;
 
   header {
     display: flex;
