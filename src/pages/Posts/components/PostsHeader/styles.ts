@@ -32,6 +32,11 @@ export const PostsHeaderContainer = styled.section`
     gap: 2rem;
     flex-wrap: wrap;
 
+    @media screen and (max-width: 768px) {
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
     li {
       display: flex;
       align-items: center;

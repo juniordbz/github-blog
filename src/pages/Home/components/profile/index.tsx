@@ -1,15 +1,13 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { ExternalLink } from '../../../../components/ExternalLink'
-import { Picture, ProfileContainer, ProfileContent } from './styles'
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
-import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { ProfileContainer } from './styles'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../../../lib/axios'
 import { Spinner } from '../../../../components/Spinner'
+import { ProfileDesktop } from './components/ProfileDesktop'
+import { ProfileMobile } from './components/ProfileMobile'
 
 const userName = import.meta.env.VITE_GITHUB_USERNAME
 
-interface ProfileData {
+export interface ProfileData {
   login: string
   bio: string
   avatar_url: string
@@ -22,6 +20,7 @@ interface ProfileData {
 export function Profile() {
   const [profileData, setProfileData] = useState<ProfileData>({} as ProfileData)
   const [isLoading, setIsLoading] = useState(true)
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
   const getProfileData = useCallback(async () => {
     try {
@@ -38,47 +37,26 @@ export function Profile() {
     getProfileData()
   }, [])
 
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   return (
     <>
       <ProfileContainer>
         {isLoading ? (
           <Spinner />
+        ) : screenWidth <= 768 ? (
+          <ProfileMobile data={profileData} />
         ) : (
-          <>
-            {' '}
-            <Picture src={profileData.avatar_url} />
-            <ProfileContent>
-              <header>
-                <h1>{profileData.name}</h1>
-                <ExternalLink
-                  text="GitHub"
-                  href={profileData.html_url}
-                  target="_blank"
-                />
-              </header>
-
-              <p>{profileData.bio}</p>
-
-              <ul>
-                <li>
-                  <FontAwesomeIcon icon={faGithub} />
-                  {profileData.login}
-                </li>
-
-                {profileData?.company && (
-                  <li>
-                    <FontAwesomeIcon icon={faBuilding} />
-                    {profileData.company}
-                  </li>
-                )}
-
-                <li>
-                  <FontAwesomeIcon icon={faUserGroup} />
-                  {profileData.followers} seguidores
-                </li>
-              </ul>
-            </ProfileContent>
-          </>
+          <ProfileDesktop data={profileData} />
         )}
       </ProfileContainer>
     </>

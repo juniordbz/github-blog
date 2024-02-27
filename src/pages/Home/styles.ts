@@ -6,4 +6,9 @@ export const PostsListContainer = styled.div`
   width: 100%;
   margin: 3rem auto 14rem;
   gap: 2rem;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `

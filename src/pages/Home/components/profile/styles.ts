@@ -10,6 +10,16 @@ export const ProfileContainer = styled.section`
   background: ${({ theme }) => theme.colors['base-profile']};
   box-shadow: 0 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    > div:first-child {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
 `
 export const Picture = styled.img`
   width: 9rem;
@@ -17,9 +27,9 @@ export const Picture = styled.img`
   border-radius: 8px;
   object-fit: cover;
 
-  @media screen and (max-width: 991px) {
-    width: 3rem;
-    height: 3rem;
+  @media screen and (max-width: 768px) {
+    width: 5rem;
+    height: 5rem;
     border-radius: 4px;
   }
 `
@@ -48,6 +58,11 @@ export const ProfileContent = styled.div`
     gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: auto;
+    line-height: 1;
+
+    @media screen and (max-width: 768px) {
+      line-height: normal;
+    }
 
     li {
       display: flex;
@@ -58,6 +73,20 @@ export const ProfileContent = styled.div`
         height: 1.125rem;
         color: ${({ theme }) => theme.colors['base-label']};
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+    }
+
+    ul {
+      margin-top: 1rem;
     }
   }
 `
