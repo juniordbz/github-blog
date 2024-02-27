@@ -4,7 +4,7 @@ import { PostsListContainer } from './styles'
 import { CardsPost } from './components/Cards'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../lib/axios'
-import { Spinner } from '../../components/Spinner'
+import { Spinner } from '../../components/Spinner/index'
 
 const userName = import.meta.env.VITE_GITHUB_USERNAME
 const repoName = import.meta.env.VITE_GITHUB_REPONAME
