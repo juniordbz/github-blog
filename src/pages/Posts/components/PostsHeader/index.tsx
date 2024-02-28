@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import { IPost } from '../../../Home'
-import { Spinner } from '../../../../components/Spinner'
+import { Spinner } from '../../../../components/spinner'
 import { relativeDateFormatter } from '../../../../utils/formatter'
 
 interface PostHeaderProps {

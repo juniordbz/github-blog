@@ -3,7 +3,7 @@ import { PostsListContainer } from './styles'
 import { CardsPost } from './components/Cards'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../lib/axios'
-import { Spinner } from '../../components/Spinner'
+import { Spinner } from '../../components/spinner'
 import { SearchInput } from './components/SearchInput'
 
 const userName = import.meta.env.VITE_GITHUB_USERNAME

@@ -1,7 +1,7 @@
 import { ProfileContainer } from './styles'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '../../../../lib/axios'
-import { Spinner } from '../../../../components/Spinner'
+import { Spinner } from '../../../../components/spinner'
 import { ProfileDesktop } from './components/ProfileDesktop'
 import { ProfileMobile } from './components/ProfileMobile'
 
