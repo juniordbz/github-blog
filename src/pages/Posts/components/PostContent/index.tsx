@@ -11,27 +11,26 @@ export function PostContent({ content }: PostContentProps) {
   return (
     <PostContentContainer>
       <ReactMarkdown
-        children={content}
         components={{
           code(props) {
-            const { children, className, node, ...rest } = props
+            const { children, className } = props
             const match = /language-(\w+)/.exec(className || '')
             return match ? (
               <SyntaxHighlighter
-                {...rest}
                 PreTag="div"
-                children={String(children).replace(/\n$/, '')}
                 language={match[1]}
                 style={dracula}
-              />
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
             ) : (
-              <code {...rest} className={className}>
-                {children}
-              </code>
+              <code className={className}>{children}</code>
             )
           },
         }}
-      />
+      >
+        {content}
+      </ReactMarkdown>
     </PostContentContainer>
   )
 }

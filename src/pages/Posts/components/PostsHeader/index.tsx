@@ -35,7 +35,6 @@ export function PostsHeader({ postData, isLoading }: PostHeaderProps) {
           <header>
             <ExternalLink
               onClick={goBack}
-              as="button"
               icon={<FontAwesomeIcon icon={faChevronLeft} />}
               text="voltar"
               href="#"
